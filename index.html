@@ -10,12 +10,42 @@
 </head>
 
 <body>
-    <section class="diceinfo">
-        <h1>Dice Info</h1>
+    <section>
+        <div class="text-white container bg-secondary border-rounded">
+            <div>
+                <p class="fw-bold">Dice Info!</p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle text-primary" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Number of Dice
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">1</a></li>
+                        <li><a class="dropdown-item" href="#">2</a></li>
+                        <li><a class="dropdown-item" href="#">3</a></li>
+                        <li><a class="dropdown-item" href="#">4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle text-primary" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Type of Dice
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">d20</a></li>
+                    <li><a class="dropdown-item" href="#">d100</a></li>
+                    <li><a class="dropdown-item" href="#">d12</a></li>
+                    <li><a class="dropdown-item" href="#">d10</a></li>
+                    <li><a class="dropdown-item" href="#">d8</a></li>
+                    <li><a class="dropdown-item" href="#">d6</a></li>
+                    <li><a class="dropdown-item" href="#">d4</a></li>
 
+                </ul>
+            </div>
 
+        </div>
     </section>
-    <section class="dice-stats">
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

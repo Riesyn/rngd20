@@ -10,13 +10,14 @@
 </head>
 
 <Header>
-    <section>
+    <section class="">
         <div class="position-absolute top-50 start-50 translate-middle"></div>
-            <div class="text-white container bg-secondary border-rounded bg-gradient ">
-                <h1 class="text-center">Random Dice Roll Generator</h1>
-                <h2 class="text-center small">This tool can roll up to 4 dice. You can choose between many different types of dice. Enjoy</h2>
-            </div>
-    </section>            
+        <div class="text-white container bg-secondary border-rounded bg-gradient border border-dark rounded border-3">
+            <h1 class="text-center">Random Dice Roll Generator</h1>
+            <h2 class="text-center small">This tool can roll up to 4 dice. You can choose between many different types
+                of dice. Enjoy</h2>
+        </div>
+    </section>
 </Header>
 
 <body>
@@ -30,33 +31,59 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Number of Dice
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
-                        <li><a class="dropdown-item" href="#">4</a></li>
+                    <ul class="dropdown-menu" id="numberOfDice" aria-labelledby="dropdownMenuButton">
+                        <li class="dropdown-item">1</li>
+                        <li class="dropdown-item">2</li>
+                        <li class="dropdown-item">3</li>
+                        <li class="dropdown-item">4</li>
                     </ul>
                 </div>
-            </div>
-            <div class="dropdown">
-                <button class="btn dropdown-toggle text-primary" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Type of Dice
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">d20</a></li>
-                    <li><a class="dropdown-item" href="#">d100</a></li>
-                    <li><a class="dropdown-item" href="#">d12</a></li>
-                    <li><a class="dropdown-item" href="#">d10</a></li>
-                    <li><a class="dropdown-item" href="#">d8</a></li>
-                    <li><a class="dropdown-item" href="#">d6</a></li>
-                    <li><a class="dropdown-item" href="#">d4</a></li>
 
-                </ul>
+                <p id="selectedNumber">
+
+                </p>
+
+
+
             </div>
+            <div>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle text-primary" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Type of Dice
+                    </button>
+                    <ul class="dropdown-menu" id="typeOfDice" aria-labelledby="dropdownMenuButton">
+                        <li class="dropdown-item">d20</li>
+                        <li class="dropdown-item">d100</li>
+                        <li class="dropdown-item">d12</li>
+                        <li class="dropdown-item">d10</li>
+                        <li class="dropdown-item">d8</li>
+                        <li class="dropdown-item">d6</li>
+                        <li class="dropdown-item">d4</li>
+
+                    </ul>
+                </div>
+
+                <p id="selectedType">
+
+                </p>
+            </div>
+
+
 
         </div>
     </section>
+    <section>
+        <button class="btn btn-primary" id="rollButton">
+            Roll!
+
+        </button>
+
+        <table>
+
+        </table>
+
+
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

@@ -1,0 +1,47 @@
+/*.hex {
+    margin-top: 70px;
+    width: 208px;
+    height: 120px;
+    left: 50px;
+    background-color: greenyellow;
+    position: relative;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.hex:before,
+.hex:after {
+    content: "";
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    position: absolute;
+}
+
+.hex:before {
+    /* top: -59px 
+}
+
+.hex:after {
+    bottom: -59px;
+}*/
+
+.hex {
+    top: 150px;
+    left: 150px;
+    width: 300px;
+    height: 300px;
+    /* background-color: #6c6;*/
+    position: relative;
+    border: 1px solid black;
+    transform: rotate(45deg);
+    /* Rotate the square by 45 degrees */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    transform: rotate(-45deg);
+    /* Rotate the content back to its original orientation */
+    text-align: center;
+}

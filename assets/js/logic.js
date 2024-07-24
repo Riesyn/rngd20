@@ -135,6 +135,14 @@ const getCurrentResults = function () {
 
 }
 
+const resetBtn = document.getElementById("resetButton");
+
+function handleClick() {
+    window.location.reload();
+}
+
+resetBtn.addEventListener("click", handleClick);
+
 document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)
 
 document.querySelector('#typeOfDice').addEventListener('click', handleTypeSelect)

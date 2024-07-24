@@ -3,24 +3,40 @@
     margin-left: 2rem;
 }
 
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
 .hex {
     top: 150px;
     left: 150px;
     width: 300px;
     height: 300px;
-    /* background-color: #6c6;*/
     position: relative;
     border: 1px solid black;
+     /* Rotate the square by 45 degrees */
     transform: rotate(45deg);
-    /* Rotate the square by 45 degrees */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .content {
-    transform: rotate(-45deg);
     /* Rotate the content back to its original orientation */
+    transform: rotate(-45deg);
     text-align: center;
 
 }

@@ -12,16 +12,16 @@
 <Header>
     <section class="">
         <div class="position-absolute top-50 start-50 translate-middle"></div>
-        <div class="text-white container bg-secondary border-rounded bg-gradient border border-dark rounded border-3">
+        <div class="text-white container bg-danger border-rounded bg-gradient border border-dark rounded border-3">
             <h1 class="text-center">Random Dice Roll Generator</h1>
             <h2 class="text-center small">This tool can roll up to 4 dice. You can choose between many different types
-                of dice. Enjoy</h2>
+                of dice. Enjoy!</h2>
         </div>
     </section>
 </Header>
 
 <body>
-    <section class="m-3 w-50 border border-dark rounded border-3" id="diceborder">
+    <section class="m-5 w-50 border border-dark rounded border-3" id="diceborder">
         <p class="fw-bold text-center">Dice Info!</p>
         <div class="border-rounded d-flex justify-content-between flex-wrap">
             <div>
@@ -72,6 +72,9 @@
 
 
         </div>
+        <div id="currentResults">
+
+        </div>
     </section>
     <table class="table" id="rollTable">
 
@@ -90,7 +93,7 @@
                 <td id="d20-number"></td>
                 <td id="d20-rolls"></td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Get Dice Stats!
                     </button>
                 </td>
@@ -98,14 +101,17 @@
             </tr>
             <tr>
                 <th scope="row">d100</th>
+                <td id="d100-number"></td>
+                <td id="d100-rolls"></td>
                 <td></td>
-                <td></td>
+
 
 
             </tr>
             <tr>
                 <th scope="row">d12</th>
-                <td></td>
+                <td id="d12-number"></td>
+                <td id="d12-rolls"></td>
                 <td></td>
 
 
@@ -113,32 +119,33 @@
             </tr>
             <tr>
                 <th scope="row">d10</th>
-                <td></td>
+                <td id="d10-number"></td>
+                <td id="d10-rolls"></td>
                 <td></td>
 
 
             </tr>
             <tr>
                 <th scope="row">d8</th>
-                <td></td>
+                <td id="d8-number"></td>
+                <td id="d8-rolls"></td>
                 <td></td>
 
 
             </tr>
             <tr>
                 <th scope="row">d6</th>
-                <td></td>
+                <td id="d6-number"></td>
+                <td id="d6-rolls"></td>
                 <td></td>
 
 
             </tr>
             <tr>
                 <th scope="row">d4</th>
+                <td id="d4-number"></td>
+                <td id="d4-rolls"></td>
                 <td></td>
-                <td></td>
-
-
-
             </tr>
 
         </tbody>
@@ -182,27 +189,7 @@
             Reset!
 
         </button>
-
-
-
         <table>
-
-        </table>
-
-        <table id="numbersTable">
-            <thead>
-                <tr>
-                    <th>Number</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            <tbody>
-        </table>
-
-
-
-
     </section>
 
 

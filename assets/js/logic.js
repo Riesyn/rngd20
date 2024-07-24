@@ -93,15 +93,20 @@ const rollDice = function (number, sides, type) {
 
     let timesRolled = 0
 
+    const currentResults = []
+
     const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
 
     while (timesRolled < number) {
         let sideSelected = Math.floor(Math.random() * sides.length)
         currentStats[type].results += sideSelected
+        currentResults.push(sideSelected)
+        localStorage.setItem('currentResults', JSON.stringify(currentResults))
+
         timesRolled++
 
     }
-
+    getCurrentResults()
     currentStats[type].timesRolled += timesRolled
     localStorage.setItem('stats', JSON.stringify(currentStats))
 
@@ -118,6 +123,16 @@ const displayAverages = function (type) {
     const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
 
     console.log(currentStats[type])
+}
+const getCurrentResults = function () {
+    const results = JSON.parse(localStorage.getItem("currentResults")) || []
+    results.forEach(function (result) {
+        const newResultEl = document.createElement('p')
+        newResultEl.textContent = result
+        document.getElementById('currentResults').appendChild(newResultEl)
+
+    });
+
 }
 
 document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)

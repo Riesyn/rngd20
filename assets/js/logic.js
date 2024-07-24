@@ -4,13 +4,13 @@ const numberSelectedEl = document.getElementById('selectedNumber')
 const typeSelectedEl = document.getElementById('selectedType')
 
 const stats = {
-    d4: { timesRolled: 0 },
-    d6: { timesRolled: 0 },
-    d8: { timesRolled: 0 },
-    d10: { timesRolled: 0 },
-    d12: { timesRolled: 0 },
-    d20: { timesRolled: 0 },
-    d100: { timesRolled: 0 }
+    d4: { timesRolled: 0, results: 0 },
+    d6: { timesRolled: 0, results: 0 },
+    d8: { timesRolled: 0, results: 0 },
+    d10: { timesRolled: 0, results: 0 },
+    d12: { timesRolled: 0, results: 0 },
+    d20: { timesRolled: 0, results: 0 },
+    d100: { timesRolled: 0, results: 0 }
 }
 
 const handleNumberSelect = function (event) {
@@ -20,7 +20,7 @@ const handleNumberSelect = function (event) {
     }
 
 }
-document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)
+
 
 const handleTypeSelect = function (event) {
     if (event.target.matches('li')) {
@@ -29,7 +29,7 @@ const handleTypeSelect = function (event) {
     }
 
 }
-document.querySelector('#typeOfDice').addEventListener('click', handleTypeSelect)
+
 
 const generateSides = function (diceNumber) {
     const possibleSides = []
@@ -77,43 +77,64 @@ const handleRoll = function () {
     }
 
     rollDice(numberOfDiceSelected, sides, typeOfDiceSelected)
+    renderSelections(typeOfDiceSelected)
 
 
 }
 
-document.querySelector('#rollButton').addEventListener('click', handleRoll)
+const renderSelections = function (type) {
+    document.getElementById(`${type}-number`).textContent = numberOfDiceSelected
+    readLocalStorage(type)
+}
+
+
 
 const rollDice = function (number, sides, type) {
 
     let timesRolled = 0
 
-
+    const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
 
     while (timesRolled < number) {
         let sideSelected = Math.floor(Math.random() * sides.length)
-        console.log(sideSelected)
+        currentStats[type].results += sideSelected
         timesRolled++
 
     }
-    const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
+
     currentStats[type].timesRolled += timesRolled
     localStorage.setItem('stats', JSON.stringify(currentStats))
 
 
 }
 
-const readLocalStorage = function () {
+const readLocalStorage = function (type) {
     const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
+    document.getElementById(`${type}-rolls`).textContent = currentStats[type].timesRolled
 
-    d4El.innerHTML = currentStats.d4.timesRolled
-    d6El.innerHTML = currentStats.d6.timesRolled
-    d8El.innerHTML = currentStats.d8.timesRolled
-    d10El.innerHTML = currentStats.d10.timesRolled
-    d12El.innerHTML = currentStats.d12.timesRolled
-    d20El.innerHTML = currentStats.d20.timesRolled
-    d100El.innerHTML = currentStats.d100.timesRolled
 
 }
+const displayAverages = function (type) {
+    const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
+
+    console.log(currentStats[type])
+}
+
+document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)
+
+document.querySelector('#typeOfDice').addEventListener('click', handleTypeSelect)
+
+document.querySelector('#rollButton').addEventListener('click', handleRoll)
+
+document.getElementById('rollTable').addEventListener('click', function (event) {
+    if (event.target.matches('button')) {
+        const diceRow = event.target.parentElement.parentElement
+        const diceType = diceRow.getAttribute('id').split('-')[0]
+        displayAverages(diceType)
+
+    }
+
+})
 
 
 

@@ -27,7 +27,7 @@ th {
     height: 300px;
     position: relative;
     border: 1px solid black;
-     /* Rotate the square by 45 degrees */
+    /* Rotate the square by 45 degrees */
     transform: rotate(45deg);
     display: flex;
     align-items: center;
@@ -39,4 +39,12 @@ th {
     transform: rotate(-45deg);
     text-align: center;
 
+}
+
+.centered-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
 }

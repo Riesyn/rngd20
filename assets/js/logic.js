@@ -149,19 +149,43 @@ document.querySelector('#typeOfDice').addEventListener('click', handleTypeSelect
 
 document.querySelector('#rollButton').addEventListener('click', handleRoll)
 
+
+
+const displayAveragesInModal = function () {
+    const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
+    let timesRolled = 0
+    let results = 0
+    const keysArray = Object.keys(currentStats);
+    const count = keysArray.length;
+    console.log(count)
+    for (const key in currentStats) {
+        if (Object.hasOwnProperty.call(currentStats, key)) {
+            const element = currentStats[key];
+            if (!isNaN(element.timesRolled) && !isNaN(element.results)) {
+                /*console.log(element.timesRolled);*/
+                timesRolled += element.timesRolled
+                /*console.log(element.results);*/
+                results += element.results
+
+            }
+
+        }
+    }
+    console.log(timesRolled)
+    console.log(results)
+    document.getElementById('totalRolls').textContent = '# of rolls: ' + timesRolled
+    document.getElementById('averageResults').textContent = 'Avg # rolled: ' + results / count
+}
+
 document.getElementById('rollTable').addEventListener('click', function (event) {
     if (event.target.matches('button')) {
         const diceRow = event.target.parentElement.parentElement
         const diceType = diceRow.getAttribute('id').split('-')[0]
         displayAverages(diceType)
+        displayAveragesInModal()
 
     }
 
 })
-
-
-
-
-
 
 

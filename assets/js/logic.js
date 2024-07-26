@@ -153,7 +153,7 @@ const displayAveragesInModal = function () {
     console.log(timesRolled)
     console.log(results)
     document.getElementById('totalRolls').textContent = '# of rolls: ' + timesRolled
-    document.getElementById('averageResults').textContent = 'Avg # rolled: ' + results / count
+    document.getElementById('averageResults').textContent = 'Avg # rolled: ' + (results / count).toFixed(2);
 }
 
 document.getElementById('rollTable').addEventListener('click', function (event) {

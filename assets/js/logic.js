@@ -21,7 +21,6 @@ const handleNumberSelect = function (event) {
 
 }
 
-
 const handleTypeSelect = function (event) {
     if (event.target.matches('li')) {
         typeOfDiceSelected = event.target.textContent
@@ -29,7 +28,6 @@ const handleTypeSelect = function (event) {
     }
 
 }
-
 
 const generateSides = function (diceNumber) {
     const possibleSides = []
@@ -78,16 +76,12 @@ const handleRoll = function () {
 
     rollDice(numberOfDiceSelected, sides, typeOfDiceSelected)
     renderSelections(typeOfDiceSelected)
-
-
 }
 
 const renderSelections = function (type) {
     document.getElementById(`${type}-number`).textContent = numberOfDiceSelected
     readLocalStorage(type)
 }
-
-
 
 const rollDice = function (number, sides, type) {
 
@@ -109,7 +103,6 @@ const rollDice = function (number, sides, type) {
     getCurrentResults()
     currentStats[type].timesRolled += timesRolled
     localStorage.setItem('stats', JSON.stringify(currentStats))
-
 
 }
 
@@ -141,16 +134,6 @@ function handleClick() {
     window.location.reload();
 }
 
-resetBtn.addEventListener("click", handleClick);
-
-document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)
-
-document.querySelector('#typeOfDice').addEventListener('click', handleTypeSelect)
-
-document.querySelector('#rollButton').addEventListener('click', handleRoll)
-
-
-
 const displayAveragesInModal = function () {
     const currentStats = JSON.parse(localStorage.getItem('stats')) || stats
     let timesRolled = 0
@@ -162,13 +145,9 @@ const displayAveragesInModal = function () {
         if (Object.hasOwnProperty.call(currentStats, key)) {
             const element = currentStats[key];
             if (!isNaN(element.timesRolled) && !isNaN(element.results)) {
-                /*console.log(element.timesRolled);*/
                 timesRolled += element.timesRolled
-                /*console.log(element.results);*/
                 results += element.results
-
             }
-
         }
     }
     console.log(timesRolled)
@@ -188,4 +167,10 @@ document.getElementById('rollTable').addEventListener('click', function (event) 
 
 })
 
+resetBtn.addEventListener("click", handleClick);
 
+document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)
+
+document.querySelector('#typeOfDice').addEventListener('click', handleTypeSelect)
+
+document.querySelector('#rollButton').addEventListener('click', handleRoll)

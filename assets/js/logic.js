@@ -131,7 +131,9 @@ const getCurrentResults = function () {
 const resetBtn = document.getElementById("resetButton");
 
 function handleClick() {
-    window.location.reload();
+    localStorage.clear();
+    currentResults.clear();
+    window.location.clear();
 }
 
 const displayAveragesInModal = function () {
@@ -153,6 +155,7 @@ const displayAveragesInModal = function () {
     console.log(timesRolled)
     console.log(results)
     document.getElementById('totalRolls').textContent = '# of rolls: ' + timesRolled
+
     document.getElementById('averageResults').textContent = 'Avg # rolled: ' + (results / count).toFixed(0);
 }
 
@@ -167,7 +170,7 @@ document.getElementById('rollTable').addEventListener('click', function (event) 
 
 })
 
-resetBtn.addEventListener("click", handleClick);
+resetBtn.addEventListener('click', handleClick);
 
 document.querySelector('#numberOfDice').addEventListener('click', handleNumberSelect)
 

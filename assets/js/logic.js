@@ -131,9 +131,7 @@ const getCurrentResults = function () {
 const resetBtn = document.getElementById("resetButton");
 
 function handleClick() {
-    localStorage.clear();
-    currentResults.clear();
-    window.location.clear();
+    window.location.reload();
 }
 
 const displayAveragesInModal = function () {
